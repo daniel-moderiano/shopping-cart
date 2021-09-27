@@ -17,84 +17,84 @@ function App() {
       price: 40.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'Recess Diplomat',
       price: 48.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'YoYoFactory SuperStar',
       price: 70.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'YoYoFactory Replay',
       price: 15.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'YoYo King Ghost',
       price: 25.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'YoYo King Watcher',
       price: 20.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'YoYoFactory Boss',
       price: 25.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'YoYoFactory Grind Machine',
       price: 40.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'Duncan Barracuda',
       price: 40.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'Magic April',
       price: 40.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'One Drop Burnside',
       price: 95.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
     {
       name: 'Vosun Galsang',
       price: 65.00,
       img: '',
       id: nanoid(),
-      quantity: 0,
+      quantity: 1,
     },
   ]);
 
@@ -136,9 +136,8 @@ function App() {
       // Add item to cart
       setCartItems([ ...cartItems,  product]);
     } else {
-      // Increment quantity of item
       increaseQuantity(product.id);
-    }    
+    }
   };
 
 
