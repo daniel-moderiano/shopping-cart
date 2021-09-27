@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Cart = () => {
+const Cart = ({ items }) => {
+
   return (
     <div>
       <h1>Cart</h1>
