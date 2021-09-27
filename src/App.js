@@ -106,31 +106,39 @@ function App() {
   };
 
   const increaseQuantity = (productId) => {
-    // Grab the cart item that matches the product ID whose quantity is to be adjusted
-    const [cartItemToAdjust] = cartItems.filter((item) => item.id === productId);
-    
-    // TODO: increase quantity
 
+    // Find only the cart item that macthes the product ID given, and increment quantity for that item only
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === productId) {
+        item.quantity++;
+      }
+      return item;
+    });
+    
+    setCartItems(newCartItems);
   }
 
   const decreaseQuantity = (productId) => {
-    // Grab the cart item that matches the product ID whose quantity is to be adjusted
-    const [cartItemToAdjust] = cartItems.filter((item) => item.id === productId);
+    // Find only the cart item that macthes the product ID given, and decrement quantity for that item only
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === productId) {
+        item.quantity--;
+      }
+      return item;
+    });
     
-    // TODO: decrease quantity
+    setCartItems(newCartItems);
   }
 
   const addProductToCart = (product) => {
-
+    // Establish whether the item exists in the cart
     if (!isItemInCart(product.id)) {
       // Add item to cart
       setCartItems([ ...cartItems,  product]);
     } else {
-      // Increment quantity of item by one
-      // TODO
+      // Increment quantity of item
       increaseQuantity(product.id);
     }    
-
   };
 
 
