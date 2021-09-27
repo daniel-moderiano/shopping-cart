@@ -22,3 +22,7 @@
   text-decoration: underline;
 }
 
+.product__img {
+  width: 150px;
+  height: auto;
+}

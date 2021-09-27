@@ -18,6 +18,7 @@ const Shop = ({ products, addToCart }) => {
           price={product.price}
           handleClick={handleClick}
           product={product}
+          src={product.img}
         />
       ))}
     </div>

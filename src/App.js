@@ -8,6 +8,19 @@ import Shop from './components/Shop';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 
+import april from './images/april.jpg';
+import barracuda from './images/barracuda.jpg';
+import boss from './images/boss.jpg';
+import burnside from './images/burnside.jpg';
+import carpfin from './images/carpfin.jpg';
+import diplomat from './images/diplomat.jpg';
+import ghost from './images/ghost.jpg';
+import grind from './images/grind-machine.jpg';
+import replay from './images/replay.jpg';
+import superstar from './images/superstar.jpg';
+import watcher from './images/watcher.jpg';
+import galsang from './images/galsang.jpg';
+
 function App() {
 
   // The base array of products sold on the store. These product objects can be passed to the cart array to allow re-use of the properties
@@ -18,6 +31,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: carpfin,
     },
     {
       name: 'Recess Diplomat',
@@ -25,6 +39,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: diplomat,
     },
     {
       name: 'YoYoFactory SuperStar',
@@ -32,6 +47,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: superstar,
     },
     {
       name: 'YoYoFactory Replay',
@@ -39,6 +55,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: replay,
     },
     {
       name: 'YoYo King Ghost',
@@ -46,6 +63,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: ghost,
     },
     {
       name: 'YoYo King Watcher',
@@ -53,6 +71,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: watcher,
     },
     {
       name: 'YoYoFactory Boss',
@@ -60,6 +79,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: boss,
     },
     {
       name: 'YoYoFactory Grind Machine',
@@ -67,6 +87,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: grind,
     },
     {
       name: 'Duncan Barracuda',
@@ -74,6 +95,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: barracuda,
     },
     {
       name: 'Magic April',
@@ -81,6 +103,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: april,
     },
     {
       name: 'One Drop Burnside',
@@ -88,6 +111,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: burnside,
     },
     {
       name: 'Vosun Galsang',
@@ -95,6 +119,7 @@ function App() {
       img: '',
       id: nanoid(),
       quantity: 1,
+      img: galsang,
     },
   ]);
 
