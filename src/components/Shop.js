@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import ShopCard from './ShopCard';
 
-const Shop = ({ products }) => {
+const Shop = ({ products, addToCart }) => {
+
+  const handleClick = (product) => {
+    addToCart(product);
+  }
 
   return (
     <div>
@@ -11,7 +15,9 @@ const Shop = ({ products }) => {
         <ShopCard 
           key={product.id}
           name={product.name} 
-          price={product.price} 
+          price={product.price}
+          handleClick={handleClick}
+          product={product}
         />
       ))}
     </div>

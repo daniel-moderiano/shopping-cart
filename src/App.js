@@ -104,7 +104,7 @@ function App() {
         <Switch>
           <Route path="/" exact render={() => <Home />}/>
           <Route path="/cart" render={() => <Cart items={cartItems}/>}/>
-          <Route path="/shop" render={() => <Shop products={products}/>}/>
+          <Route path="/shop" render={() => <Shop products={products} addToCart={addProductToCart}/>}/>
         </Switch>
       </Main>
     </div>
