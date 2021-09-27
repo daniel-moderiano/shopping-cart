@@ -89,9 +89,20 @@ function App() {
   // When a user clicks 'add to cart' on a product in the shop screen, that product will be pushed to this items array, where the quantity may be modified in the cart screen
   const [cartItems, setCartItems] = useState([]);
 
+  const isItemInCart = (productId) => {
+    return cartItems.some((item) => item.id === productId);
+  };
+
   const addProductToCart = (product) => {
-    setCartItems([ ...cartItems,  product]);
-  }
+
+    if (!isItemInCart(product.id)) {
+      // Add item to cart
+      setCartItems([ ...cartItems,  product]);
+    } else {
+      // Increment quantity of item by one
+    }    
+
+  };
 
 
   return (
