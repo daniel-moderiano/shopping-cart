@@ -1,68 +1,81 @@
 import React, { useState } from 'react';
 import ShopCard from './ShopCard';
+import { nanoid } from 'nanoid';
 
 const Shop = () => {
 
   const [products, setProducts] = useState([
     {
-      product: 'Magic Carpfin',
+      name: 'Magic Carpfin',
       price: 40.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'Recess Diplomat',
+      name: 'Recess Diplomat',
       price: 48.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'YoYoFactory SuperStar',
+      name: 'YoYoFactory SuperStar',
       price: 70.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'YoYoFactory Replay',
+      name: 'YoYoFactory Replay',
       price: 15.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'YoYo King Ghost',
+      name: 'YoYo King Ghost',
       price: 25.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'YoYo King Watcher',
+      name: 'YoYo King Watcher',
       price: 20.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'YoYoFactory Boss',
+      name: 'YoYoFactory Boss',
       price: 25.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'YoYoFactory Grind Machine',
+      name: 'YoYoFactory Grind Machine',
       price: 40.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'Duncan Barracuda',
+      name: 'Duncan Barracuda',
       price: 40.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'Magic April',
+      name: 'Magic April',
       price: 40.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'One Drop Burnside',
+      name: 'One Drop Burnside',
       price: 95.00,
       img: '',
+      id: nanoid(),
     },
     {
-      product: 'Vosun Galsang',
+      name: 'Vosun Galsang',
       price: 65.00,
       img: '',
+      id: nanoid(),
     },
 
   ]);
@@ -71,10 +84,13 @@ const Shop = () => {
     <div>
       <h1>Shop</h1>
       <h2>Advanced Yo-Yos</h2>
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
-      <ShopCard />
+      {products.map((product) => (
+        <ShopCard 
+          key={product.id}
+          name={product.name} 
+          price={product.price} 
+        />
+      ))}
     </div>
   );
 }
