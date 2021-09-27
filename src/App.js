@@ -17,72 +17,84 @@ function App() {
       price: 40.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'Recess Diplomat',
       price: 48.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'YoYoFactory SuperStar',
       price: 70.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'YoYoFactory Replay',
       price: 15.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'YoYo King Ghost',
       price: 25.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'YoYo King Watcher',
       price: 20.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'YoYoFactory Boss',
       price: 25.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'YoYoFactory Grind Machine',
       price: 40.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'Duncan Barracuda',
       price: 40.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'Magic April',
       price: 40.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'One Drop Burnside',
       price: 95.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
     {
       name: 'Vosun Galsang',
       price: 65.00,
       img: '',
       id: nanoid(),
+      quantity: 0,
     },
   ]);
 
@@ -93,6 +105,21 @@ function App() {
     return cartItems.some((item) => item.id === productId);
   };
 
+  const increaseQuantity = (productId) => {
+    // Grab the cart item that matches the product ID whose quantity is to be adjusted
+    const [cartItemToAdjust] = cartItems.filter((item) => item.id === productId);
+    
+    // TODO: increase quantity
+
+  }
+
+  const decreaseQuantity = (productId) => {
+    // Grab the cart item that matches the product ID whose quantity is to be adjusted
+    const [cartItemToAdjust] = cartItems.filter((item) => item.id === productId);
+    
+    // TODO: decrease quantity
+  }
+
   const addProductToCart = (product) => {
 
     if (!isItemInCart(product.id)) {
@@ -100,6 +127,8 @@ function App() {
       setCartItems([ ...cartItems,  product]);
     } else {
       // Increment quantity of item by one
+      // TODO
+      increaseQuantity(product.id);
     }    
 
   };
