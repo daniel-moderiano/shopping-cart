@@ -25,9 +25,12 @@ const CartItem = ({ item, handleChange }) => {
 
   const toggleErrorClass = (event) => {
     if (event.target.value === "0") {
-      event.target.classList.add('cartItem__quantity--error');
+      event.target.classList.add('quantity__input--error');
+      
     } else {
-      event.target.classList.remove('cartItem__quantity--error');
+      event.target.classList.remove('quantity__input--error');
+      (event.target.parentNode).querySelector('.quantity__error').classList.remove('quantity__error--show');
+      (event.target.parentNode).querySelector('.quantity__error').classList.add('quantity__error--hide');
     }
   }
 
@@ -36,23 +39,27 @@ const CartItem = ({ item, handleChange }) => {
       <img className="cartItem__img" src="" alt="" />
       <h3 className="cartItem__name">{item.name}</h3>
       <div className="cartItem__price">${item.price} AUD</div>
-      <label htmlFor="quantity">Quantity</label>
-      <input 
-        type="number" 
-        name="quantity" 
-        id="quantity" 
-        value={item.quantity} 
-        className="cartItem__quantity"
-        onChange={(event) => {
-          avoidBlankQuantityInput(event);
-          avoidNegativeQuantityInput(event);
-          removeLeadingZeroes(event);
-          toggleErrorClass(event);
-          handleChange(event, item);
-        }}
-      />
-      <button className="cartItem__increment">+</button>
-      <button className="cartItem__deccrement">-</button>
+      <div className="cartItem__quantity">
+        <label htmlFor="quantity">Quantity</label>
+        <input 
+          type="number" 
+          name="quantity" 
+          id="quantity" 
+          value={item.quantity} 
+          className="quantity__input"
+          onChange={(event) => {
+            avoidBlankQuantityInput(event);
+            avoidNegativeQuantityInput(event);
+            removeLeadingZeroes(event);
+            toggleErrorClass(event);
+            handleChange(event, item);
+          }}
+        />
+        <button className="quantity__increment">+</button>
+        <button className="quantity__deccrement">-</button>
+        <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>
+      </div>
+      
       <button className="cartItem__remove">Remove</button>
     </div>
   );

@@ -27,10 +27,18 @@
   height: auto;
 }
 
-.cartItem__quantity--error {
+.quantity__input--error {
   box-sizing: border-box;
   outline-color: red;
   outline-width: 2px;
   border: 2px solid red;
   border-radius: 2px;
+}
+
+.quantity__error--hide {
+  display: none;
+}
+
+.quantity__error--show {
+  display: block;
 }
