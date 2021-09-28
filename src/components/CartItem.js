@@ -25,9 +25,9 @@ const CartItem = ({ item, handleChange }) => {
 
   const toggleErrorClass = (event) => {
     if (event.target.value === "0") {
-      event.target.classList.add('error');
+      event.target.classList.add('cartItem__quantity--error');
     } else {
-      event.target.classList.remove('error');
+      event.target.classList.remove('cartItem__quantity--error');
     }
   }
 
@@ -42,6 +42,7 @@ const CartItem = ({ item, handleChange }) => {
         name="quantity" 
         id="quantity" 
         value={item.quantity} 
+        className="cartItem__quantity"
         onChange={(event) => {
           avoidBlankQuantityInput(event);
           avoidNegativeQuantityInput(event);
