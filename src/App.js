@@ -167,7 +167,7 @@ function App() {
   }
 
   const handleQuantityChange = (event, cartItem) => {
-    const desiredQuantity = event.target.value;
+    const desiredQuantity = parseInt(event.target.value);
     setQuantity(cartItem.id, desiredQuantity);
 
     // const desiredQuantity = parseInt(event.target.value);
