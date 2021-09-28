@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CartItem from './CartItem';
 
-const Cart = ({ items }) => {
+const Cart = ({ items, handleChange }) => {
 
   return (
     <div>
@@ -12,6 +12,7 @@ const Cart = ({ items }) => {
         <CartItem 
           key={item.id}
           item={item}
+          handleChange={handleChange}
         />
       ))}
     </div>

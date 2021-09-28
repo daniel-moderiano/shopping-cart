@@ -20,6 +20,7 @@ import replay from './images/replay.jpg';
 import superstar from './images/superstar.jpg';
 import watcher from './images/watcher.jpg';
 import galsang from './images/galsang.jpg';
+import CartItem from './components/CartItem';
 
 function App() {
 
@@ -153,6 +154,31 @@ function App() {
     });
     
     setCartItems(newCartItems);
+  };
+
+  const setQuantity = (cartItemId, desiredQuantity) => {
+    const newCartItems = cartItems.map((item) => {
+      if (item.id === cartItemId) {
+        item.quantity = desiredQuantity;
+      }
+      return item;
+    });
+    setCartItems(newCartItems);
+  }
+
+  const handleQuantityChange = (event, cartItem) => {
+    const desiredQuantity = event.target.value;
+    setQuantity(cartItem.id, desiredQuantity);
+
+    // const desiredQuantity = parseInt(event.target.value);
+    
+    // const newCartItems = cartItems.map((item) => {
+    //   if (item.id === cartItem.id) {
+    //     item.quantity = event.target.value;
+    //   }
+    //   return item;
+    // });
+    // setCartItems(newCartItems);
   }
 
   const addProductToCart = (product) => {
@@ -175,7 +201,7 @@ function App() {
 
         <Switch>
           <Route path="/" exact render={() => <Home />}/>
-          <Route path="/cart" render={() => <Cart items={cartItems}/>}/>
+          <Route path="/cart" render={() => <Cart items={cartItems} handleChange={handleQuantityChange}/>}/>
           <Route path="/shop" render={() => <Shop products={products} addToCart={addProductToCart}/>}/>
         </Switch>
       </Main>
