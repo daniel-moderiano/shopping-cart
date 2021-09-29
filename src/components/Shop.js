@@ -8,19 +8,21 @@ const Shop = ({ products, addToCart }) => {
   }
 
   return (
-    <div>
-      <h1>Shop</h1>
-      <h2>Advanced Yo-Yos</h2>
-      {products.map((product) => (
-        <ShopCard 
-          key={product.id}
-          name={product.name} 
-          price={product.price}
-          handleClick={handleClick}
-          product={product}
-          src={product.img}
-        />
-      ))}
+    <div className="shop">
+      <h1 className="shop__title">Shop</h1>
+      <h2 className="shop__subtitle">Advanced Yo-Yos</h2>
+      <div className="products">
+        {products.map((product) => (
+          <ShopCard 
+            key={product.id}
+            name={product.name} 
+            price={product.price}
+            handleClick={handleClick}
+            product={product}
+            src={product.img}
+          />
+        ))}
+      </div>  
     </div>
   );
 }

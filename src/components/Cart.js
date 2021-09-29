@@ -19,9 +19,9 @@ const Cart = ({ items, handleChange, removeItem }) => {
 
   return (
     <div>
-      <div>
-      <h1>Cart</h1>
-      <h2>Current items in cart</h2>
+      <div className="cart">
+      <h1 className="cart__title">Cart</h1>
+      <h2 className="cart__subtitle">Current items in cart</h2>
       {items.map((item) => (
         <CartItem 
           key={item.id}
