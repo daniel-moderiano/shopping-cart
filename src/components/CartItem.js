@@ -38,7 +38,7 @@ const CartItem = ({ item, handleChange }) => {
     <div className="cartItem">
       <img className="cartItem__img" src="" alt="" />
       <h3 className="cartItem__name">{item.name}</h3>
-      <div className="cartItem__price">${item.price} AUD</div>
+      <div className="cartItem__price">${item.price * item.quantity} AUD</div>
       <div className="cartItem__quantity">
         <label htmlFor="quantity">Quantity</label>
         <input 

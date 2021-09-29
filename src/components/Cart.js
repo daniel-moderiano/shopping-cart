@@ -3,8 +3,6 @@ import CartItem from './CartItem';
 
 const Cart = ({ items, handleChange }) => {
 
-  // TODO: Check for anu quantity fields with 0 input, and show error below these before user is allowed to checkout (checkout will be a success message "Thank you for shopping with")
-
   const checkInputFieldsAreNotZero = () => {
     const quantityElements = document.querySelectorAll('.cartItem__quantity');
     const errorMsg = document.createElement('div');
