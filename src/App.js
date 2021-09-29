@@ -189,7 +189,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
+      <Nav numItems={cartItems.length}/>
       <Main>
 
         {/* Additional shared styling here */}
