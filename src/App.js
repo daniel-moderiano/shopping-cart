@@ -1,6 +1,7 @@
 import './styles/App.css';
+import './styles/reset.css';
+
 import Nav from './components/Nav';
-import Main from './components/Main';
 import { Switch, Route } from 'react-router';
 import Home from './components/Home';
 import Cart from './components/Cart';
@@ -20,7 +21,6 @@ import replay from './images/replay.jpg';
 import superstar from './images/superstar.jpg';
 import watcher from './images/watcher.jpg';
 import galsang from './images/galsang.jpg';
-import CartItem from './components/CartItem';
 
 function App() {
 
@@ -190,7 +190,7 @@ function App() {
   return (
     <div className="App">
       <Nav numItems={cartItems.length}/>
-      <Main>
+      <main className="main">
 
         {/* Additional shared styling here */}
 
@@ -199,7 +199,8 @@ function App() {
           <Route path="/cart" render={() => <Cart items={cartItems} handleChange={handleQuantityChange} removeItem={removeProductFromCart}/>}/>
           <Route path="/shop" render={() => <Shop products={products} addToCart={addProductToCart}/>}/>
         </Switch>
-      </Main>
+      </main>
+        
     </div>
   );
 }
