@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CartItem = ({ item, handleChange }) => {
+const CartItem = ({ item, handleChange, removeItem }) => {
 
   // If the user presses the backspace key to manually enter an input, this will avoid leaving the field blank, tripping an NaN error. Instead, set the value to zero
   const avoidBlankQuantityInput = (event) => {
@@ -60,7 +60,7 @@ const CartItem = ({ item, handleChange }) => {
         <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>
       </div>
       
-      <button className="cartItem__remove">Remove</button>
+      <button className="cartItem__remove" onClick={() => removeItem(item)}>Remove</button>
     </div>
   );
 }

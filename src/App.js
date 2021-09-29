@@ -169,17 +169,7 @@ function App() {
   const handleQuantityChange = (event, cartItem) => {
     const desiredQuantity = parseInt(event.target.value);
     setQuantity(cartItem.id, desiredQuantity);
-
-    // const desiredQuantity = parseInt(event.target.value);
-    
-    // const newCartItems = cartItems.map((item) => {
-    //   if (item.id === cartItem.id) {
-    //     item.quantity = event.target.value;
-    //   }
-    //   return item;
-    // });
-    // setCartItems(newCartItems);
-  }
+  };
 
   const addProductToCart = (product) => {
     // Establish whether the item exists in the cart
@@ -189,6 +179,11 @@ function App() {
     } else {
       increaseQuantity(product.id);
     }
+  };
+
+  const removeProductFromCart = (product) => {
+    const newCartItems = cartItems.filter((item) => item.id !== product.id);
+    setCartItems(newCartItems);
   };
 
 
@@ -201,7 +196,7 @@ function App() {
 
         <Switch>
           <Route path="/" exact render={() => <Home />}/>
-          <Route path="/cart" render={() => <Cart items={cartItems} handleChange={handleQuantityChange}/>}/>
+          <Route path="/cart" render={() => <Cart items={cartItems} handleChange={handleQuantityChange} removeItem={removeProductFromCart}/>}/>
           <Route path="/shop" render={() => <Shop products={products} addToCart={addProductToCart}/>}/>
         </Switch>
       </Main>

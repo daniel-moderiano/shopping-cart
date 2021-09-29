@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CartItem from './CartItem';
 
-const Cart = ({ items, handleChange }) => {
+const Cart = ({ items, handleChange, removeItem }) => {
 
   const checkInputFieldsAreNotZero = () => {
     const quantityElements = document.querySelectorAll('.cartItem__quantity');
@@ -27,6 +27,7 @@ const Cart = ({ items, handleChange }) => {
           key={item.id}
           item={item}
           handleChange={handleChange}
+          removeItem={removeItem}
         />
       ))}
     </div>
