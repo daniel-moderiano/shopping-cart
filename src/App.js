@@ -190,13 +190,7 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <div className="logo">Logo</div>
         <Nav numItems={cartItems.length}/>
-        <div className="hamburger">
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </div>
       </header>
       <main className="main">
 
