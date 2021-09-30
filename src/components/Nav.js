@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const Nav = ({ numItems }) => {
   return (
     <nav className="nav">
+      <div className="logo">Logo</div>
       <ul className="nav__list">
         <li className="nav__list-item">
           <Link className="nav__link" to="/">Home</Link>
@@ -16,6 +17,11 @@ const Nav = ({ numItems }) => {
           <div className="nav__num-items">{numItems}</div>
         </li>
       </ul>
+      <div className="hamburger">
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </div>
     </nav>
   );
 }
