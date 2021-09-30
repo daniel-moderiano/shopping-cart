@@ -43,7 +43,7 @@ function App() {
       img: diplomat,
     },
     {
-      name: 'YoYoFactory SuperStar',
+      name: 'YYF SuperStar',
       price: 70.00,
       img: '',
       id: nanoid(),
@@ -51,7 +51,7 @@ function App() {
       img: superstar,
     },
     {
-      name: 'YoYoFactory Replay',
+      name: 'YYF Replay',
       price: 15.00,
       img: '',
       id: nanoid(),
@@ -75,7 +75,7 @@ function App() {
       img: watcher,
     },
     {
-      name: 'YoYoFactory Boss',
+      name: 'YYF Boss',
       price: 25.00,
       img: '',
       id: nanoid(),
@@ -83,7 +83,7 @@ function App() {
       img: boss,
     },
     {
-      name: 'YoYoFactory Grind Machine',
+      name: 'YYF Grind Machine',
       price: 40.00,
       img: '',
       id: nanoid(),
