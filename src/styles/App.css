@@ -545,6 +545,10 @@ input::-webkit-inner-spin-button {
   .product__add-btn {
     font-size: 0.8rem;
   }
+
+  .cart__checkout-btn {
+    place-self: center;
+  }
 }
 
 /* Landscape tablet and smaller desktop */
