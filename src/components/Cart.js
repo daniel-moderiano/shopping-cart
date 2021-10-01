@@ -1,7 +1,7 @@
 import React from 'react';
 import CartItem from './CartItem';
 
-const Cart = ({ items, handleChange, removeItem }) => {
+const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuantity }) => {
 
   const calculateTotal = () => {
     let total = 0;
@@ -34,6 +34,8 @@ const Cart = ({ items, handleChange, removeItem }) => {
             handleChange={handleChange}
             removeItem={removeItem}
             src={item.img}
+            increaseQuantity={increaseQuantity}
+            decreaseQuantity={decreaseQuantity}
           />
         ))}
       </div>
@@ -43,7 +45,12 @@ const Cart = ({ items, handleChange, removeItem }) => {
           <div className="subtotal__value">${calculateTotal()}</div>
         </div>
        
-        <button className="cart__checkout-btn" onClick={checkInputFieldsAreNotZero}>Proceed to checkout</button>
+        <button 
+          className="cart__checkout-btn" 
+          onClick={checkInputFieldsAreNotZero}
+          disabled={items.length === 0}
+        >Proceed to checkout
+        </button>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CartItem = ({ item, handleChange, removeItem, src }) => {
+const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decreaseQuantity }) => {
 
   // If the user presses the backspace key to manually enter an input, this will avoid leaving the field blank, tripping an NaN error. Instead, set the value to zero
   const avoidBlankQuantityInput = (event) => {
@@ -34,6 +34,18 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
     }
   }
 
+  const incrementQuantityValue = (item) => {
+    if (item.quantity < 5) {
+      increaseQuantity(item.id);
+    }
+  }
+
+  const decrementQuantityValue = (item) => {
+    if (item.quantity > 1) {
+      decreaseQuantity(item.id);
+    }
+  }
+
   return (
     <div className="cartItem">
       <div className="cartItem__img-container">
@@ -45,7 +57,7 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
       </div>
 
       <div className="cartItem__quantity">
-        <button className="quantity__decrement">−</button>
+        <button className="quantity__decrement" onClick={() => decrementQuantityValue(item)}>−</button>
         <label htmlFor="quantity" className="visuallyhidden">Quantity</label>
         <input 
           type="number" 
@@ -63,7 +75,7 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
             handleChange(event, item);
           }}
         />
-        <button className="quantity__increment">+</button>
+        <button className="quantity__increment" onClick={() => incrementQuantityValue(item)}>+</button>
         <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>
       </div>
 

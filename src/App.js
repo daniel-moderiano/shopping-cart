@@ -186,7 +186,13 @@ function App() {
 
         <Switch>
           <Route path="/" exact render={() => <Home />}/>
-          <Route path="/cart" render={() => <Cart items={cartItems} handleChange={handleQuantityChange} removeItem={removeProductFromCart}/>}/>
+          <Route path="/cart" render={() => <Cart 
+            items={cartItems} 
+            handleChange={handleQuantityChange} 
+            removeItem={removeProductFromCart}
+            increaseQuantity={increaseQuantity}
+            decreaseQuantity={decreaseQuantity}
+          />}/>
           <Route path="/shop" render={() => <Shop products={products} addToCart={addProductToCart}/>}/>
         </Switch>
       </main>
