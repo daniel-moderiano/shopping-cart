@@ -26,16 +26,16 @@ const Nav = ({ numItems }) => {
   
   return (
     <nav className="nav">
-      <Link to="/" className="nav__title">Throw</Link>
+      <Link to="/" className="nav__title" onClick={() => window.scrollTo(0, 0)}>Throw</Link>
       <ul className="nav__list">
         <li className="nav__list-item">
-          <Link className="nav__link" to="/">Home</Link>
+          <Link className="nav__link" to="/" onClick={() => window.scrollTo(0, 0)}>Home</Link>
         </li>
         <li className="nav__list-item">
-          <Link className="nav__link" to="/shop">Shop</Link>
+          <Link className="nav__link" to="/shop" onClick={() => window.scrollTo(0, 0)}>Shop</Link>
         </li>
         <li className="nav__list-item nav__cart">
-          <Link className="nav__link" to="/cart">Cart</Link>
+          <Link className="nav__link" to="/cart" onClick={() => window.scrollTo(0, 0)}>Cart</Link>
           <div className="nav__num-items">{numItems}</div>
         </li>
       </ul>
