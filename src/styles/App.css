@@ -107,7 +107,15 @@ body {
 }
 
 .shop__title {
-  font-size: 2rem;
+  width: 85%;
+  max-width: 1200px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 2rem;
+  padding-left: 1.2rem;
+  border-bottom: 1px solid rgb(226, 232, 240);
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .products {
@@ -182,6 +190,7 @@ body {
 }
 
 .cart__title {
+  text-align: center;
   width: 85%;
   font-size: 1.5rem;
   font-weight: bold;
@@ -377,6 +386,8 @@ input::-webkit-inner-spin-button {
   box-sizing: border-box;
   margin: 2.5rem 0 1rem 0;
   height: 3rem;
+  max-width: 20rem;
+  place-self: flex-end;
 }
 
 .cart__checkout-btn:hover {
@@ -495,7 +506,6 @@ input::-webkit-inner-spin-button {
   }
 
   .cart__checkout-btn {
-    width: 20rem;
     place-self: flex-end;
   }
 }
