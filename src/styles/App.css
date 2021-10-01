@@ -97,8 +97,22 @@ body {
   color: #482ff7;
 }
 
+.nav__cart {
+  display: flex;
+  align-items: center;
+}
+
 .nav__num-items {
-  display: none;
+  margin-left: 0.6rem;
+  margin-top: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #475569;
+  color: #fff;
+  height: 1.4rem;
+  width: 1.4rem;
+  border-radius: 2rem;
 }
 
 .nav__logo {
