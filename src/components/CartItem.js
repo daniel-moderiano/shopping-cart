@@ -37,8 +37,9 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
       
     } else {
       event.target.classList.remove('quantity__input--error');
-      (event.target.parentNode).querySelector('.quantity__error').classList.remove('quantity__error--show');
-      (event.target.parentNode).querySelector('.quantity__error').classList.add('quantity__error--hide');
+      (event.target.parentNode.parentNode).querySelector('.quantity__error').classList.remove('quantity__error--show');
+      (event.target.parentNode.parentNode).querySelector('.quantity__error').classList.add('quantity__error--hide');
+      
     }
   }
 
@@ -84,15 +85,13 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
             handleChange(event, item);
           }}
         />
+        {/* TODO: trigger input validation checks when changing quantity via btns */}
         <button className="quantity__increment" onClick={() => incrementQuantityValue(item)}>+</button>
-        <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>
+        
       </div>
 
       <button className="cartItem__remove-btn" onClick={() => removeItem(item)}>Remove</button>
-
-      
-      
-      
+      <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>     
     </div>
   );
 }

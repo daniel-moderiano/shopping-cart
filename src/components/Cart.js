@@ -15,10 +15,9 @@ const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuant
     errorMsg.classList.add('quantity__error');
 
     quantityElements.forEach((element) => {
-      
       if (element.querySelector('.quantity__input').value === "0") {
-        element.querySelector('.quantity__error').classList.add('quantity__error--show');
-        element.querySelector('.quantity__error').classList.remove('quantity__error--hide');
+        element.parentNode.querySelector('.quantity__error').classList.add('quantity__error--show');
+        element.parentNode.querySelector('.quantity__error').classList.remove('quantity__error--hide');
       }
     });
   }
