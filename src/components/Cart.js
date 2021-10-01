@@ -21,15 +21,29 @@ const Cart = ({ items, handleChange, removeItem }) => {
     <div>
       <div className="cart">
       <h1 className="cart__title">Cart</h1>
-      <h2 className="cart__subtitle">Current items in cart</h2>
-      {items.map((item) => (
-        <CartItem 
-          key={item.id}
-          item={item}
-          handleChange={handleChange}
-          removeItem={removeItem}
-        />
-      ))}
+      <table className="items__table">
+        <thead className="table__head">
+          <tr>
+            <th>&nbsp;</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody className="table__body">
+          {items.map((item) => (
+            <CartItem 
+              key={item.id}
+              item={item}
+              handleChange={handleChange}
+              removeItem={removeItem}
+              src={item.img}
+            />
+          ))}
+        </tbody>
+      </table>
     </div>
     <button onClick={checkInputFieldsAreNotZero}>Checkout</button>
     </div>

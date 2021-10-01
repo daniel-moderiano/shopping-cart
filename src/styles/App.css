@@ -92,8 +92,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   width: 100%;
+}
+
+.shop__title {
+  font-size: 2rem;
 }
 
 .products {
@@ -170,6 +173,23 @@ body {
 .quantity__error--show {
   display: block;
 }
+
+
+/* CART COMPONENT */
+
+.cart__title {
+  font-size: 2rem;
+}
+
+.cartItem__img-container {
+  width: 50px;
+  height: 50px;
+}
+
+.cartItem__img {
+  width: 100%;
+}
+
 
 /* RESPONSIVE */
 
@@ -249,6 +269,4 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-
-  /* Change product/img size for the larger screens */
 }

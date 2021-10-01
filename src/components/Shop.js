@@ -9,8 +9,7 @@ const Shop = ({ products, addToCart }) => {
 
   return (
     <div className="shop">
-      <h1 className="shop__title">Shop</h1>
-      <h2 className="shop__subtitle">Advanced Yo-Yos</h2>
+      <h1 className="shop__title">Advanced Yo-Yo Collection</h1>
       <div className="products">
         {products.map((product) => (
           <ShopCard 
