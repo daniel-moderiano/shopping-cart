@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CartItem from './CartItem';
 
 const Cart = ({ items, handleChange, removeItem }) => {
@@ -18,34 +18,22 @@ const Cart = ({ items, handleChange, removeItem }) => {
   }
 
   return (
-    <div>
-      <div className="cart">
+    <div className="cart">
       <h1 className="cart__title">Cart</h1>
-      <table className="items__table">
-        <thead className="table__head">
-          <tr>
-            <th>&nbsp;</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody className="table__body">
-          {items.map((item) => (
-            <CartItem 
-              key={item.id}
-              item={item}
-              handleChange={handleChange}
-              removeItem={removeItem}
-              src={item.img}
-            />
-          ))}
-        </tbody>
-      </table>
-    </div>
-    <button onClick={checkInputFieldsAreNotZero}>Checkout</button>
+        {items.map((item) => (
+          <CartItem 
+            key={item.id}
+            item={item}
+            handleChange={handleChange}
+            removeItem={removeItem}
+            src={item.img}
+          />
+        ))}
+      <div className="cart__summary">
+        <div className="cart__summary-title">Cart Total</div>
+        <div className="cart__total">Price</div>
+        <button className="cart__checkout-btn" onClick={checkInputFieldsAreNotZero}>Checkout</button>
+      </div>
     </div>
   );
 }

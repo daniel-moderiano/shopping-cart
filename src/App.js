@@ -25,11 +25,10 @@ import galsang from './images/galsang.jpg';
 function App() {
 
   // The base array of products sold on the store. These product objects can be passed to the cart array to allow re-use of the properties
-  const [products, setProducts] = useState([
+  const [products] = useState([
     {
       name: 'Magic Carpfin',
       price: 40.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: carpfin,
@@ -37,7 +36,6 @@ function App() {
     {
       name: 'Recess Diplomat',
       price: 48.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: diplomat,
@@ -45,7 +43,6 @@ function App() {
     {
       name: 'YYF SuperStar',
       price: 70.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: superstar,
@@ -53,7 +50,6 @@ function App() {
     {
       name: 'YYF Replay',
       price: 15.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: replay,
@@ -61,7 +57,6 @@ function App() {
     {
       name: 'YoYo King Ghost',
       price: 25.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: ghost,
@@ -69,7 +64,6 @@ function App() {
     {
       name: 'YoYo King Watcher',
       price: 20.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: watcher,
@@ -77,7 +71,6 @@ function App() {
     {
       name: 'YYF Boss',
       price: 25.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: boss,
@@ -85,7 +78,6 @@ function App() {
     {
       name: 'YYF Grind Machine',
       price: 40.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: grind,
@@ -93,7 +85,6 @@ function App() {
     {
       name: 'Duncan Barracuda',
       price: 40.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: barracuda,
@@ -101,7 +92,6 @@ function App() {
     {
       name: 'Magic April',
       price: 40.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: april,
@@ -109,7 +99,6 @@ function App() {
     {
       name: 'One Drop Burnside',
       price: 95.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: burnside,
@@ -117,7 +106,6 @@ function App() {
     {
       name: 'Vosun Galsang',
       price: 65.00,
-      img: '',
       id: nanoid(),
       quantity: 1,
       img: galsang,

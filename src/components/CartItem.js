@@ -35,16 +35,15 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
   }
 
   return (
-    <tr className="cartItem">
-      <td className="cartItem__img">
-        <div className="cartItem__img-container">
-          <img className="cartItem__img" src={src} alt="Yo-Yo" />
-        </div>
-      </td>
-      <td className="cartItem__name">{item.name}</td>
-      <td className="cartItem__price">${item.price * item.quantity} AUD</td>
-      <td className="cartItem__quantity">
-        <label htmlFor="quantity">Quantity</label>
+    <div className="cartItem">
+      <div className="cartItem__img-container">
+        <img className="cartItem__img" src={src} alt="Yo-Yo" />
+      </div>
+      <div className="cartItem__name">{item.name}</div>
+      <div className="cartItem__price">{item.price}</div>
+      <div className="cartItem__quantity">
+        <button className="quantity__decrement">−</button>
+        <label htmlFor="quantity" className="visuallyhidden">Quantity</label>
         <input 
           type="number" 
           name="quantity" 
@@ -60,13 +59,15 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
           }}
         />
         <button className="quantity__increment">+</button>
-        <button className="quantity__deccrement">-</button>
         <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>
-      </td>
-      <td className="cartItem__remove">
+      </div>
+      <div className="cartItem__subtotal">
+          ${item.price * item.quantity} AUD
+      </div>
+      <div className="cartItem__remove">
         <button className="cartItem__remove-btn" onClick={() => removeItem(item)}>Remove</button>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 }
 
