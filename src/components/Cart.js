@@ -51,7 +51,7 @@ const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuant
       <div className="cart__summary">
         <div className="cart__subtotal">
           <div className="subtotal__title">Subtotal</div>
-          <div className="subtotal__value">${calculateTotal()}</div>
+          <div className="subtotal__value">$ {calculateTotal()} AUD</div>
         </div>
        
         

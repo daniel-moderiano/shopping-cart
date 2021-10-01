@@ -74,7 +74,7 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
       </div>
       <div className="cartItem__name">{item.name}</div>
       <div className="cartItem__price">
-          ${item.price * item.quantity} AUD
+          $ {item.price * item.quantity}
       </div>
 
       <div className="cartItem__quantity">
