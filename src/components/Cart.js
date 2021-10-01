@@ -22,8 +22,18 @@ const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuant
     });
   }
 
+  const changeCheckoutBtn = (event) => {
+    event.target.classList.add('cart__checkout-btn--complete');
+    event.target.textContent = 'Thanks for shopping!';
+    setTimeout(() => {
+      event.target.classList.remove('cart__checkout-btn--complete');
+      event.target.textContent = 'Proceed to checkout!';
+    }, 1000)
+  };
+
   return (
     <div className="cart">
+      
       <h1 className="cart__title">Cart Summary</h1>
       <div className="cartItems">
         {items.map((item) => (
@@ -44,12 +54,14 @@ const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuant
           <div className="subtotal__value">${calculateTotal()}</div>
         </div>
        
+        
         <button 
           className="cart__checkout-btn" 
-          onClick={checkInputFieldsAreNotZero}
+          onClick={(event) => {checkInputFieldsAreNotZero(); changeCheckoutBtn(event)}}
           disabled={items.length === 0}
         >Proceed to checkout
         </button>
+        
       </div>
     </div>
   );

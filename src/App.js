@@ -165,7 +165,10 @@ function App() {
       // Add item to cart
       setCartItems([ ...cartItems,  product]);
     } else {
-      increaseQuantity(product.id);
+      // Check that the quantity will not exceed maximum
+      if (product.quantity < 9) {
+        increaseQuantity(product.id);
+      }
     }
   };
 

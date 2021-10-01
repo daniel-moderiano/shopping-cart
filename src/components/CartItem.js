@@ -55,10 +55,8 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
     }
   }
 
-
-
   const incrementQuantityValue = (item) => {
-    if (item.quantity < 5) {
+    if (item.quantity < 9) {
       increaseQuantity(item.id);
     }
   }
@@ -99,14 +97,12 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
             handleChange(event, item);
           }}
         />
-        {/* TODO: trigger input validation checks when changing quantity via btns */}
         <button className="quantity__increment" onClick={(event) => {
           incrementQuantityValue(item)
           toggleErrorClassQuantityBtn(event);
         }}>+</button>
         
       </div>
-
       <button className="cartItem__remove-btn" onClick={() => removeItem(item)}>Remove</button>
       <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>     
     </div>
