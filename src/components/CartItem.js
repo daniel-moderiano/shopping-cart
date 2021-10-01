@@ -16,12 +16,20 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
     }
   };
 
+
   // When the user enters a number on the input field set to zero (after a backspace), ensure the resutling value becomes the number entered, instead of 01 or 02 etc.
   const removeLeadingZeroes = (event) => {
     if ((event.target.value).length > 1 && event.target.value[0] === "0") {
       event.target.value = (event.target.value).slice(1);
     }
   }
+
+  // Prevent the user from entering a quantity > 9
+  const limitQuantity = (event) => {
+    if (parseInt(event.target.value) > 9) {
+      event.target.value = "9";
+    }
+  };
 
   const toggleErrorClass = (event) => {
     if (event.target.value === "0") {
@@ -64,13 +72,14 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
           name="quantity" 
           id="quantity" 
           min="1"
-          max="5"
+          max="9"
           value={item.quantity} 
           className="quantity__input"
           onChange={(event) => {
             avoidBlankQuantityInput(event);
             avoidNegativeQuantityInput(event);
             removeLeadingZeroes(event);
+            limitQuantity(event);
             toggleErrorClass(event);
             handleChange(event, item);
           }}
