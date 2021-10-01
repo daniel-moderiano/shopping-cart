@@ -43,6 +43,20 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
     }
   }
 
+  const toggleErrorClassQuantityBtn = (event) => {
+    if (event.target.value === "0") {
+      event.target.parentNode.querySelector('#quantity').classList.add('quantity__input--error');
+      
+    } else {
+      event.target.parentNode.querySelector('#quantity').classList.remove('quantity__input--error');
+      (event.target.parentNode.parentNode).querySelector('.quantity__error').classList.remove('quantity__error--show');
+      (event.target.parentNode.parentNode).querySelector('.quantity__error').classList.add('quantity__error--hide');
+      
+    }
+  }
+
+
+
   const incrementQuantityValue = (item) => {
     if (item.quantity < 5) {
       increaseQuantity(item.id);
@@ -86,7 +100,10 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
           }}
         />
         {/* TODO: trigger input validation checks when changing quantity via btns */}
-        <button className="quantity__increment" onClick={() => incrementQuantityValue(item)}>+</button>
+        <button className="quantity__increment" onClick={(event) => {
+          incrementQuantityValue(item)
+          toggleErrorClassQuantityBtn(event);
+        }}>+</button>
         
       </div>
 
