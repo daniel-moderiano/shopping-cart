@@ -34,12 +34,15 @@ body {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding-top: 2rem;
+  padding-top: 6rem;
 }
 
 .header {
+  width: 100%;
+  height: 4rem;
   border-bottom: 1px solid #e2E8F0;
-  /* position: fixed; */
+  position: fixed;
+  z-index: 10;
   background-color: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -149,6 +152,7 @@ body {
 .product__img {
   width: 100%;
   height: auto;
+  z-index: -1;
 }
 
 .product__name {
@@ -176,7 +180,6 @@ body {
   cursor: pointer;
   opacity: 0.9;
 }
-
 
 
 
@@ -274,7 +277,7 @@ input::-webkit-inner-spin-button {
   text-align: center;
   border-radius: 0px;
   position: relative;
-  z-index: 2;
+  z-index: 0;
   font-size: 1rem;
 }
 
@@ -299,6 +302,7 @@ input::-webkit-inner-spin-button {
   border-radius: 0px;
   font-size: 1.3rem;
   line-height: 1.4rem;
+  /* z-index: -2; */
 }
 
 .quantity__decrement {
@@ -314,6 +318,7 @@ input::-webkit-inner-spin-button {
   border-radius: 0px;
   font-size: 1.3rem;
   line-height: 1.3rem;
+  /* z-index: -2; */
 }
 
 .quantity__increment:hover, .quantity__decrement:hover {
@@ -401,7 +406,7 @@ input::-webkit-inner-spin-button {
   .nav__list {
     position: fixed;
     left: -100%;
-    top: 5rem;
+    top: 4rem;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
@@ -409,12 +414,11 @@ input::-webkit-inner-spin-button {
     text-align: center;
     transition: 0.3s;
     box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    z-index: 10;
+    overflow: hidden;
   }
 
   .nav__list.active {
     left: 0;
-    z-index: 10;
   }
 
   .nav__list-item {
@@ -422,8 +426,8 @@ input::-webkit-inner-spin-button {
   }
 
   .hamburger {
-      display: block;
-      cursor: pointer;
+    display: block;
+    cursor: pointer;
   }
 
   .hamburger.active .bar:nth-child(2) {
@@ -431,11 +435,11 @@ input::-webkit-inner-spin-button {
   }
 
   .hamburger.active .bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
 
   .hamburger.active .bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
 
