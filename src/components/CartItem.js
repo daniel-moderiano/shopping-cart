@@ -40,7 +40,10 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
         <img className="cartItem__img" src={src} alt="Yo-Yo" />
       </div>
       <div className="cartItem__name">{item.name}</div>
-      <div className="cartItem__price">{item.price}</div>
+      <div className="cartItem__price">
+          ${item.price * item.quantity} AUD
+      </div>
+
       <div className="cartItem__quantity">
         <button className="quantity__decrement">−</button>
         <label htmlFor="quantity" className="visuallyhidden">Quantity</label>
@@ -48,6 +51,8 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
           type="number" 
           name="quantity" 
           id="quantity" 
+          min="1"
+          max="5"
           value={item.quantity} 
           className="quantity__input"
           onChange={(event) => {
@@ -59,14 +64,14 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
           }}
         />
         <button className="quantity__increment">+</button>
-        <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>
-      </div>
-      <div className="cartItem__subtotal">
-          ${item.price * item.quantity} AUD
+        {/* <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div> */}
       </div>
       <div className="cartItem__remove">
         <button className="cartItem__remove-btn" onClick={() => removeItem(item)}>Remove</button>
       </div>
+      
+      
+      
     </div>
   );
 }
