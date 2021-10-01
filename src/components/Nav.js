@@ -29,7 +29,7 @@ const Nav = ({ numItems }) => {
       <div className="nav__title">Throw</div>
       <ul className="nav__list">
         <li className="nav__list-item">
-          <Link className="nav__link" to="/">Home</Link>
+          <Link className="nav__link" to="/shopping-cart">Home</Link>
         </li>
         <li className="nav__list-item">
           <Link className="nav__link" to="/shop">Shop</Link>

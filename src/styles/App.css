@@ -342,9 +342,9 @@ input::-webkit-inner-spin-button {
 
 .quantity__input--error {
   box-sizing: border-box;
-  outline-color: red;
+  outline-color: #ca2b3b;
   outline-width: 1px;
-  border: 2px solid red;
+  border: 2px solid #ca2b3b;
   border-radius: 2px;
 }
 
