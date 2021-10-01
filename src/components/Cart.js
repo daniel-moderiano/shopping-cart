@@ -19,7 +19,8 @@ const Cart = ({ items, handleChange, removeItem }) => {
 
   return (
     <div className="cart">
-      <h1 className="cart__title">Cart</h1>
+      <h1 className="cart__title">Cart Summary</h1>
+      <div className="cartItems">
         {items.map((item) => (
           <CartItem 
             key={item.id}
@@ -29,6 +30,7 @@ const Cart = ({ items, handleChange, removeItem }) => {
             src={item.img}
           />
         ))}
+      </div>
       <div className="cart__summary">
         <div className="cart__summary-title">Cart Total</div>
         <div className="cart__total">Price</div>

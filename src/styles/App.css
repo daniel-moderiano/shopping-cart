@@ -182,8 +182,10 @@ body {
 }
 
 .cart__title {
+  width: 85%;
   font-size: 2rem;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgb(226, 232, 240);
 }
 
 .cartItems {
@@ -192,17 +194,19 @@ body {
 }
 
 .cartItem {
-  width: 90%;
+  width: 85%;
+  height: 7rem;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(5, 1fr);
-  border-bottom: 1px solid black;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  border-bottom: 1px solid rgb(226, 232, 240);
+  padding: 0.6rem;
 }
 
 .cartItem__img-container {
-  
-  grid-row: 1 / 6;
-  padding: 0.2rem;
+  grid-row: 1 / 4;
+  place-self: start;
+  padding-left: 0.2rem;
   width: 70px;
   height: 70px;
 }
@@ -211,22 +215,21 @@ body {
   width: 100%;
 }
 
-.cartItem__remove-btn {
-  border: none;
-  background-color: #fff;
-  text-decoration: underline;
-  margin: 0;
-  padding: 0;
-  color: black;
+.cartItem__name {
+  grid-row: 1 / 4;
+  padding: 0.4rem 0 0 0.5rem;
+  font-size: 1.1rem;
 }
 
-.cartItem__remove-btn:hover {
-  text-decoration: none;
-  cursor: pointer;
+.cartItem__price {
+  font-weight: bold;
+  place-self: center end;
+  font-size: 1rem;
 }
 
 .cartItem__quantity {
   display: flex;
+  place-self: center end;
 }
 
 /* Remove arrows from number input */
@@ -242,7 +245,7 @@ input::-webkit-inner-spin-button {
 .quantity__input {
   -moz-appearance: textfield;
   width: 2rem;
-  height: 1.5rem;
+  height: 2rem;
   padding-top: 0.1rem;
   border-top: 1px solid rgb(226, 232, 240);
   border-bottom: 1px solid rgb(226, 232, 240);
@@ -253,6 +256,7 @@ input::-webkit-inner-spin-button {
   border-radius: 0px;
   position: relative;
   z-index: 2;
+  font-size: 1rem;
 }
 
 .quantity__input--error {
@@ -270,10 +274,12 @@ input::-webkit-inner-spin-button {
   border-left: none;
   background-color: #fff;
   color: rgb(26, 32, 44);
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2rem;
+  width: 2rem;
   box-sizing: border-box;
   border-radius: 0px;
+  font-size: 1.3rem;
+  line-height: 1.4rem;
 }
 
 .quantity__decrement {
@@ -283,10 +289,12 @@ input::-webkit-inner-spin-button {
   border-right: none;
   background-color: #fff;
   color: rgb(26, 32, 44);
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2rem;
+  width: 2rem;
   box-sizing: border-box;
   border-radius: 0px;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
 }
 
 .quantity__increment:hover, .quantity__decrement:hover {
@@ -307,6 +315,21 @@ input::-webkit-inner-spin-button {
   display: block;
 }
 
+.cartItem__remove-btn {
+  border: none;
+  background-color: #fff;
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+  color: black;
+  place-self: center end;
+  font-size: 0.9rem;
+}
+
+.cartItem__remove-btn:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
 
 /* RESPONSIVE */
 

@@ -64,11 +64,11 @@ const CartItem = ({ item, handleChange, removeItem, src }) => {
           }}
         />
         <button className="quantity__increment">+</button>
-        {/* <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div> */}
+        <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>
       </div>
-      <div className="cartItem__remove">
-        <button className="cartItem__remove-btn" onClick={() => removeItem(item)}>Remove</button>
-      </div>
+
+      <button className="cartItem__remove-btn" onClick={() => removeItem(item)}>Remove</button>
+
       
       
       
