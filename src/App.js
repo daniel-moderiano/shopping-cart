@@ -188,15 +188,15 @@ function App() {
         {/* Additional shared styling here */}
 
         <Switch>
-          <Route path="/" exact render={() => <Home />}/>
-          <Route path="/cart" render={() => <Cart 
+          <Route exact path="/" render={() => <Home />}/>
+          <Route exact path="/cart" render={() => <Cart 
             items={cartItems} 
             handleChange={handleQuantityChange} 
             removeItem={removeProductFromCart}
             increaseQuantity={increaseQuantity}
             decreaseQuantity={decreaseQuantity}
           />}/>
-          <Route path="/shop" render={() => <Shop products={products} addToCart={addProductToCart}/>}/>
+          <Route exact path="/shop" render={() => <Shop products={products} addToCart={addProductToCart}/>}/>
         </Switch>
       </main>
         

@@ -26,7 +26,7 @@ const Nav = ({ numItems }) => {
   
   return (
     <nav className="nav">
-      <div className="nav__title">Throw</div>
+      <Link to="/" className="nav__title">Throw</Link>
       <ul className="nav__list">
         <li className="nav__list-item">
           <Link className="nav__link" to="/">Home</Link>
