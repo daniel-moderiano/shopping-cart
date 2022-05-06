@@ -90,7 +90,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .nav__list-item {
@@ -123,9 +123,10 @@ body {
   justify-content: center;
   background-color: #475569;
   color: #fff;
-  height: 1.4rem;
-  width: 1.4rem;
+  height: 1.3rem;
+  width: 1.3rem;
   border-radius: 2rem;
+  font-size: 0.9rem
 }
 
 /* HOME COMPONENT */
