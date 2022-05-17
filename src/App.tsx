@@ -23,89 +23,88 @@ import watcher from './images/watcher.jpg';
 import galsang from './images/galsang.jpg';
 
 function App() {
-
   // The base array of products sold on the store. These product objects can be passed to the cart array to allow re-use of the properties
   const [products] = useState([
     {
       name: 'Magic Carpfin',
-      price: 40.00,
+      price: 40.0,
       id: nanoid(),
       quantity: 1,
       img: carpfin,
     },
     {
       name: 'Recess Diplomat',
-      price: 48.00,
+      price: 48.0,
       id: nanoid(),
       quantity: 1,
       img: diplomat,
     },
     {
       name: 'YYF SuperStar',
-      price: 70.00,
+      price: 70.0,
       id: nanoid(),
       quantity: 1,
       img: superstar,
     },
     {
       name: 'YYF Replay',
-      price: 15.00,
+      price: 15.0,
       id: nanoid(),
       quantity: 1,
       img: replay,
     },
     {
       name: 'YoYo King Ghost',
-      price: 25.00,
+      price: 25.0,
       id: nanoid(),
       quantity: 1,
       img: ghost,
     },
     {
       name: 'YoYo King Watcher',
-      price: 20.00,
+      price: 20.0,
       id: nanoid(),
       quantity: 1,
       img: watcher,
     },
     {
       name: 'YYF Boss',
-      price: 25.00,
+      price: 25.0,
       id: nanoid(),
       quantity: 1,
       img: boss,
     },
     {
       name: 'YYF Grind Machine',
-      price: 40.00,
+      price: 40.0,
       id: nanoid(),
       quantity: 1,
       img: grind,
     },
     {
       name: 'Duncan Barracuda',
-      price: 40.00,
+      price: 40.0,
       id: nanoid(),
       quantity: 1,
       img: barracuda,
     },
     {
       name: 'Magic April',
-      price: 40.00,
+      price: 40.0,
       id: nanoid(),
       quantity: 1,
       img: april,
     },
     {
       name: 'One Drop Burnside',
-      price: 95.00,
+      price: 95.0,
       id: nanoid(),
       quantity: 1,
       img: burnside,
     },
     {
       name: 'Vosun Galsang',
-      price: 65.00,
+      price: 65.0,
       id: nanoid(),
       quantity: 1,
       img: galsang,
@@ -120,7 +119,6 @@ function App() {
   };
 
   const increaseQuantity = (productId) => {
-
     // Find only the cart item that macthes the product ID given, and increment quantity for that item only
     const newCartItems = cartItems.map((item) => {
       if (item.id === productId) {
@@ -128,9 +126,9 @@ function App() {
       }
       return item;
     });
-    
+
     setCartItems(newCartItems);
-  }
+  };
 
   const decreaseQuantity = (productId) => {
     // Find only the cart item that macthes the product ID given, and decrement quantity for that item only
@@ -140,7 +138,7 @@ function App() {
       }
       return item;
     });
-    
+
     setCartItems(newCartItems);
   };
 
@@ -152,7 +150,7 @@ function App() {
       return item;
     });
     setCartItems(newCartItems);
-  }
+  };
 
   const handleQuantityChange = (event, cartItem) => {
     const desiredQuantity = parseInt(event.target.value);
@@ -163,7 +161,7 @@ function App() {
     // Establish whether the item exists in the cart
     if (!isItemInCart(product.id)) {
       // Add item to cart
-      setCartItems([ ...cartItems,  product]);
+      setCartItems([...cartItems, product]);
     } else {
       // Check that the quantity will not exceed maximum
       if (product.quantity < 9) {
@@ -177,29 +175,36 @@ function App() {
     setCartItems(newCartItems);
   };
 
-
   return (
     <div className="App">
       <header className="header">
-        <Nav numItems={cartItems.length}/>
+        <Nav numItems={cartItems.length} />
       </header>
       <main className="main">
-
         {/* Additional shared styling here */}
 
         <Switch>
-          <Route exact path="/" render={() => <Home />}/>
-          <Route exact path="/cart" render={() => <Cart 
-            items={cartItems} 
-            handleChange={handleQuantityChange} 
-            removeItem={removeProductFromCart}
-            increaseQuantity={increaseQuantity}
-            decreaseQuantity={decreaseQuantity}
-          />}/>
-          <Route exact path="/shop" render={() => <Shop products={products} addToCart={addProductToCart}/>}/>
+          <Route exact path="/" render={() => <Home />} />
+          <Route
+            exact
+            path="/cart"
+            render={() => (
+              <Cart
+                items={cartItems}
+                handleChange={handleQuantityChange}
+                removeItem={removeProductFromCart}
+                increaseQuantity={increaseQuantity}
+                decreaseQuantity={decreaseQuantity}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/shop"
+            render={() => <Shop products={products} addToCart={addProductToCart} />}
+          />
         </Switch>
       </main>
-        
     </div>
   );
 }
