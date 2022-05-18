@@ -4,10 +4,13 @@ import { Product } from '../App';
 
 interface CartProps {
   items: Product[];
-
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>, cartItem: Product) => void;
+  removeItem: (product: Product) => void;
+  increaseQuantity: (productId: string) => void;
+  decreaseQuantity: (productId: string) => void;
 }
 
-const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuantity }) => {
+const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuantity }: CartProps) => {
 
   const calculateTotal = () => {
     let total = 0;
@@ -15,34 +18,36 @@ const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuant
     return total;
   }
 
-  const changeCheckoutBtn = (event, pass) => {
+  const changeCheckoutBtn = (event: React.MouseEvent<HTMLButtonElement>, pass: boolean) => {
+    const checkoutBtn = event.target as HTMLButtonElement;
+
     if (pass) {
-      event.target.classList.add('cart__checkout-btn--complete');
-      event.target.textContent = 'Thanks for shopping!';
+      checkoutBtn.classList.add('cart__checkout-btn--complete');
+      checkoutBtn.textContent = 'Thanks for shopping!';
       setTimeout(() => {
-        event.target.classList.remove('cart__checkout-btn--complete');
-        event.target.textContent = 'Proceed to checkout!';
+        checkoutBtn.classList.remove('cart__checkout-btn--complete');
+        checkoutBtn.textContent = 'Proceed to checkout!';
       }, 1000)
     }
   };
 
   const checkInputFieldsAreNotZero = () => {
     let checkoutPass = true;
-    const quantityElements = document.querySelectorAll('.cartItem__quantity');
+    const quantityElements = document.querySelectorAll('.cartItem__quantity') as NodeListOf<HTMLDivElement>;
     const errorMsg = document.createElement('div');
     errorMsg.classList.add('quantity__error');
 
     quantityElements.forEach((element) => {
-      if (element.querySelector('.quantity__input').value === "0") {
-        element.parentNode.querySelector('.quantity__error').classList.add('quantity__error--show');
-        element.parentNode.querySelector('.quantity__error').classList.remove('quantity__error--hide');
+      const quantityInput = element.querySelector('.quantity__input') as HTMLInputElement;
+      const quantityInputError = element.parentNode!.querySelector('.quantity__error') as HTMLDivElement;
+      if (quantityInput.value === "0") {
+        quantityInputError.classList.add('quantity__error--show');
+        quantityInputError.classList.remove('quantity__error--hide');
         checkoutPass = false;
       }
     });
     return checkoutPass;
   }
-
-
 
   return (
     <div className="cart">
@@ -66,7 +71,6 @@ const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuant
           <div className="subtotal__title">Subtotal</div>
           <div className="subtotal__value">$ {calculateTotal()} AUD</div>
         </div>
-
 
         <button
           className="cart__checkout-btn"
