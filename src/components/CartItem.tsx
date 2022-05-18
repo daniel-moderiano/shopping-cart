@@ -1,16 +1,25 @@
-import React from 'react';
+import { Product } from '../App';
 
-const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decreaseQuantity }) => {
+interface CartItemProps {
+  item: Product;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>, cartItem: Product) => void;
+  removeItem: (product: Product) => void;
+  src: string;
+  increaseQuantity: (productId: string) => void;
+  decreaseQuantity: (productId: string) => void;
+}
+
+const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decreaseQuantity }: CartItemProps) => {
 
   // If the user presses the backspace key to manually enter an input, this will avoid leaving the field blank, tripping an NaN error. Instead, set the value to zero
-  const avoidBlankQuantityInput = (event) => {
+  const avoidBlankQuantityInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value === "") {
       event.target.value = "0";
     }
   };
 
   // Prevent the user from entering a negative quantity number
-  const avoidNegativeQuantityInput = (event) => {
+  const avoidNegativeQuantityInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (parseInt(event.target.value) < 0) {
       event.target.value = "0";
     }
@@ -18,50 +27,52 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
 
 
   // When the user enters a number on the input field set to zero (after a backspace), ensure the resutling value becomes the number entered, instead of 01 or 02 etc.
-  const removeLeadingZeroes = (event) => {
+  const removeLeadingZeroes = (event: React.ChangeEvent<HTMLInputElement>) => {
     if ((event.target.value).length > 1 && event.target.value[0] === "0") {
       event.target.value = (event.target.value).slice(1);
     }
   }
 
   // Prevent the user from entering a quantity > 9
-  const limitQuantity = (event) => {
+  const limitQuantity = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (parseInt(event.target.value) > 9) {
       event.target.value = "9";
     }
   };
 
-  const toggleErrorClass = (event) => {
+  const toggleErrorClass = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const quantityErrorDiv = event.target!.parentNode!.parentNode!.querySelector('.quantity__error') as HTMLDivElement;
     if (event.target.value === "0") {
       event.target.classList.add('quantity__input--error');
-      
+
     } else {
       event.target.classList.remove('quantity__input--error');
-      (event.target.parentNode.parentNode).querySelector('.quantity__error').classList.remove('quantity__error--show');
-      (event.target.parentNode.parentNode).querySelector('.quantity__error').classList.add('quantity__error--hide');
-      
+      quantityErrorDiv.classList.remove('quantity__error--show');
+      quantityErrorDiv.classList.add('quantity__error--hide');
+
     }
   }
 
-  const toggleErrorClassQuantityBtn = (event) => {
-    if (event.target.value === "0") {
-      event.target.parentNode.querySelector('#quantity').classList.add('quantity__input--error');
-      
+  const toggleErrorClassQuantityBtn = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const btn = event.target as HTMLButtonElement;
+    if (btn.value === "0") {
+      btn.parentNode!.querySelector('#quantity')!.classList.add('quantity__input--error');
+
     } else {
-      event.target.parentNode.querySelector('#quantity').classList.remove('quantity__input--error');
-      (event.target.parentNode.parentNode).querySelector('.quantity__error').classList.remove('quantity__error--show');
-      (event.target.parentNode.parentNode).querySelector('.quantity__error').classList.add('quantity__error--hide');
-      
+      btn.parentNode!.querySelector('#quantity')!.classList.remove('quantity__input--error');
+      (btn.parentNode!.parentNode)!.querySelector('.quantity__error')!.classList.remove('quantity__error--show');
+      (btn.parentNode!.parentNode)!.querySelector('.quantity__error')!.classList.add('quantity__error--hide');
+
     }
   }
 
-  const incrementQuantityValue = (item) => {
+  const incrementQuantityValue = (item: Product) => {
     if (item.quantity < 9) {
       increaseQuantity(item.id);
     }
   }
 
-  const decrementQuantityValue = (item) => {
+  const decrementQuantityValue = (item: Product) => {
     if (item.quantity > 1) {
       decreaseQuantity(item.id);
     }
@@ -74,19 +85,19 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
       </div>
       <div className="cartItem__name">{item.name}</div>
       <div className="cartItem__price">
-          $ {item.price * item.quantity}
+        $ {item.price * item.quantity}
       </div>
 
       <div className="cartItem__quantity">
         <button className="quantity__decrement" onClick={() => decrementQuantityValue(item)}>−</button>
         <label htmlFor="quantity" className="visuallyhidden">Quantity</label>
-        <input 
-          type="number" 
-          name="quantity" 
-          id="quantity" 
+        <input
+          type="number"
+          name="quantity"
+          id="quantity"
           min="1"
           max="9"
-          value={item.quantity} 
+          value={item.quantity}
           className="quantity__input"
           onChange={(event) => {
             avoidBlankQuantityInput(event);
@@ -101,10 +112,10 @@ const CartItem = ({ item, handleChange, removeItem, src, increaseQuantity, decre
           incrementQuantityValue(item)
           toggleErrorClassQuantityBtn(event);
         }}>+</button>
-        
+
       </div>
       <button className="cartItem__remove-btn" onClick={() => removeItem(item)}>Remove</button>
-      <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>     
+      <div className="quantity__error quantity__error--hide">Quantity cannot be zero!</div>
     </div>
   );
 }

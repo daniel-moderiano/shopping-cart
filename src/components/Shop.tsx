@@ -1,9 +1,14 @@
-import React from 'react';
+import { Product } from '../App';
 import ShopCard from './ShopCard';
 
-const Shop = ({ products, addToCart }) => {
+interface ShopProps {
+  products: Product[];
+  addToCart: (product: Product) => void;
+}
 
-  const handleClick = (product) => {
+const Shop = ({ products, addToCart }: ShopProps) => {
+
+  const handleClick = (product: Product) => {
     addToCart(product);
   }
 
@@ -12,16 +17,13 @@ const Shop = ({ products, addToCart }) => {
       <h1 className="shop__title">Advanced Yo-Yo Collection</h1>
       <div className="products">
         {products.map((product) => (
-          <ShopCard 
+          <ShopCard
             key={product.id}
-            name={product.name} 
-            price={product.price}
             handleClick={handleClick}
             product={product}
-            src={product.img}
           />
         ))}
-      </div>  
+      </div>
     </div>
   );
 }
