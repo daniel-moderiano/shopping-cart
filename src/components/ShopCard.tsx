@@ -17,7 +17,7 @@ const ShopCard = ({ name, price, id, handleClick, product, src }) => {
       <h3 className="product__name">{name}</h3>
       <div className="product__price">$ {price}</div>
       {/* Add a page alert on click to indicate the button has been pressed */}
-      <button onClick={(event) => {handleClick(product); changeAddToCartBtn(event)}} className="product__add-btn">Add to Cart</button>
+      <button onClick={(event) => { handleClick(product); changeAddToCartBtn(event) }} className="product__add-btn">Add to Cart</button>
     </div>
   );
 }
