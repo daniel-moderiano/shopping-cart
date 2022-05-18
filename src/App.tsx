@@ -1,13 +1,12 @@
 import './styles/App.css';
 import './styles/reset.css';
-
+import * as React from 'react';
 import Nav from './components/Nav';
 import { Switch, Route } from 'react-router';
 import Home from './components/Home';
 import Cart from './components/Cart';
 import Shop from './components/Shop';
 import { nanoid } from 'nanoid';
-import { useState } from 'react';
 
 import april from './images/april.jpg';
 import barracuda from './images/barracuda.jpg';
@@ -22,9 +21,17 @@ import superstar from './images/superstar.jpg';
 import watcher from './images/watcher.jpg';
 import galsang from './images/galsang.jpg';
 
+export interface Product {
+  name: string;
+  price: number;
+  id: string;
+  quantity: number;
+  img: string;
+};
+
 function App() {
   // The base array of products sold on the store. These product objects can be passed to the cart array to allow re-use of the properties
-  const [products] = useState([
+  const [products] = React.useState<Product[]>([
     {
       name: 'Magic Carpfin',
       price: 40.0,
@@ -112,13 +119,13 @@ function App() {
   ]);
 
   // When a user clicks 'add to cart' on a product in the shop screen, that product will be pushed to this items array, where the quantity may be modified in the cart screen
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = React.useState<Product[]>([]);
 
-  const isItemInCart = (productId) => {
+  const isItemInCart = (productId: string) => {
     return cartItems.some((item) => item.id === productId);
   };
 
-  const increaseQuantity = (productId) => {
+  const increaseQuantity = (productId: string) => {
     // Find only the cart item that macthes the product ID given, and increment quantity for that item only
     const newCartItems = cartItems.map((item) => {
       if (item.id === productId) {
@@ -130,7 +137,7 @@ function App() {
     setCartItems(newCartItems);
   };
 
-  const decreaseQuantity = (productId) => {
+  const decreaseQuantity = (productId: string) => {
     // Find only the cart item that macthes the product ID given, and decrement quantity for that item only
     const newCartItems = cartItems.map((item) => {
       if (item.id === productId) {
@@ -142,7 +149,7 @@ function App() {
     setCartItems(newCartItems);
   };
 
-  const setQuantity = (cartItemId, desiredQuantity) => {
+  const setQuantity = (cartItemId: string, desiredQuantity: number) => {
     const newCartItems = cartItems.map((item) => {
       if (item.id === cartItemId) {
         item.quantity = desiredQuantity;
@@ -152,12 +159,12 @@ function App() {
     setCartItems(newCartItems);
   };
 
-  const handleQuantityChange = (event, cartItem) => {
+  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>, cartItem: Product) => {
     const desiredQuantity = parseInt(event.target.value);
     setQuantity(cartItem.id, desiredQuantity);
   };
 
-  const addProductToCart = (product) => {
+  const addProductToCart = (product: Product) => {
     // Establish whether the item exists in the cart
     if (!isItemInCart(product.id)) {
       // Add item to cart
@@ -170,7 +177,7 @@ function App() {
     }
   };
 
-  const removeProductFromCart = (product) => {
+  const removeProductFromCart = (product: Product) => {
     const newCartItems = cartItems.filter((item) => item.id !== product.id);
     setCartItems(newCartItems);
   };

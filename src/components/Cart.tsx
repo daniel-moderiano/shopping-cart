@@ -1,5 +1,11 @@
 import React from 'react';
 import CartItem from './CartItem';
+import { Product } from '../App';
+
+interface CartProps {
+  items: Product[];
+
+}
 
 const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuantity }) => {
 
@@ -36,15 +42,15 @@ const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuant
     return checkoutPass;
   }
 
-  
+
 
   return (
     <div className="cart">
-      
+
       <h1 className="cart__title">Cart Summary</h1>
       <div className="cartItems">
         {items.map((item) => (
-          <CartItem 
+          <CartItem
             key={item.id}
             item={item}
             handleChange={handleChange}
@@ -60,18 +66,18 @@ const Cart = ({ items, handleChange, removeItem, increaseQuantity, decreaseQuant
           <div className="subtotal__title">Subtotal</div>
           <div className="subtotal__value">$ {calculateTotal()} AUD</div>
         </div>
-       
-        
-        <button 
-          className="cart__checkout-btn" 
+
+
+        <button
+          className="cart__checkout-btn"
           onClick={(event) => {
-            const test = checkInputFieldsAreNotZero(); 
+            const test = checkInputFieldsAreNotZero();
             changeCheckoutBtn(event, test);
           }}
           disabled={items.length === 0}
         >Proceed to checkout
         </button>
-        
+
       </div>
     </div>
   );
