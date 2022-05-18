@@ -1,17 +1,21 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = ({ numItems }) => {
+interface NavProps {
+  numItems: number;
+}
+
+const Nav = ({ numItems }: NavProps) => {
 
   useEffect(() => {
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav__list");
+    const hamburger = document.querySelector(".hamburger") as HTMLDivElement;
+    const navMenu = document.querySelector(".nav__list") as HTMLSpanElement;
 
     hamburger.addEventListener("click", mobileMenu);
 
     function mobileMenu() {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
     }
 
     const navLink = document.querySelectorAll(".nav__link");
@@ -19,11 +23,11 @@ const Nav = ({ numItems }) => {
     navLink.forEach(n => n.addEventListener("click", closeMenu));
 
     function closeMenu() {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
     }
   }, []);
-  
+
   return (
     <nav className="nav">
       <Link to="/" className="nav__title" onClick={() => window.scrollTo(0, 0)}>Throw</Link>
